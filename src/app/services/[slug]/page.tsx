@@ -19,7 +19,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps) {
-  const { slug } = params;
+  const { slug } = await params;
   const service = services.find((s) => s.slug === slug);
   if (!service) return { title: "Service Not Found" };
 
@@ -29,8 +29,8 @@ export async function generateMetadata({ params }: PageProps) {
   };
 }
 
-export default function ServiceDetailPage({ params }: PageProps) {
-  const { slug } = params;
+export default async function ServiceDetailPage({ params }: PageProps) {
+  const { slug } = await params;
   const service = services.find((s) => s.slug === slug);
 
   if (!service) {
