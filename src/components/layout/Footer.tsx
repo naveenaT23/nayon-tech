@@ -20,8 +20,8 @@ const Footer = () => {
               <Image 
                 src="/logo.png" 
                 alt="Nayon Tech Logo" 
-                width={150} 
-                height={50} 
+                width={200} 
+                height={65} 
                 className="logo-img"
                 style={{ objectFit: "contain", marginBottom: "0.5rem" }}
               />

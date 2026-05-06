@@ -39,8 +39,8 @@ const Navbar = () => {
           <Image 
             src="/logo.png" 
             alt="Nayon Tech Logo" 
-            width={180} 
-            height={60} 
+            width={240} 
+            height={80} 
             className="logo-img"
             style={{ objectFit: "contain" }}
           />
