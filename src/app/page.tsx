@@ -8,33 +8,10 @@ import Counter from "@/components/animations/Counter";
 import { Marquee } from "@/components/animations/Marquee";
 import ServiceCard from "@/components/services/ServiceCard";
 
+import { services } from "@/data/services";
+
 export default function Home() {
-  const featuredServices = [
-    {
-      icon: <Code2 size={32} />,
-      title: "Web Development",
-      description: "Building ultra-fast, scalable web applications that deliver world-class user experiences.",
-      details: "Our web development process is built on speed and security. We specialize in high-performance frameworks like Next.js and React to build everything from dynamic SaaS platforms to immersive creative portfolios. Every line of code is optimized for SEO and conversion, ensuring your business has a rock-solid digital foundation that scales with your ambition.",
-      imageUrl: "/service_web_dev.png",
-      imageAlt: "Futuristic web development workstation with glowing code on monitors"
-    },
-    {
-      icon: <Palette size={32} />,
-      title: "UI/UX Designing",
-      description: "Fusing industrial aesthetics with modern UI patterns for high-impact digital products.",
-      details: "We don't just design screens; we design emotional connections. Our UI/UX process involves deep behavioral research, wireframing, and interactive prototyping to ensure your users have a friction-less, delightful journey. We create modular design systems that empower your product to evolve while maintaining a premium, consistent visual identity.",
-      imageUrl: "/service_uiux.png",
-      imageAlt: "Professional UI/UX designer workspace with mobile app interfaces"
-    },
-    {
-      icon: <BrainCircuit size={32} />,
-      title: "AI Content Creation",
-      description: "Harnessing the latest generative models to create innovative content at lightning speed.",
-      details: "Stay at the forefront of the digital revolution. We integrate cutting-edge AI technologies (GPT-4, Midjourney, etc.) into your marketing ecosystem to produce high-end content at scale. From automated social media visuals to high-converting ad copy, our AI solutions help you maintain a massive digital footprint with precision and efficiency.",
-      imageUrl: "/service_ai_content.png",
-      imageAlt: "AI-driven content creation studio with neural network visualizations"
-    }
-  ];
+  const featuredServices = services.slice(0, 3);
 
   const recentNews = [
     {
@@ -129,7 +106,7 @@ export default function Home() {
                   icon={service.icon} 
                   title={service.title} 
                   description={service.description} 
-                  details={service.details}
+                  slug={service.slug}
                   imageUrl={service.imageUrl}
                   imageAlt={service.imageAlt}
                 />

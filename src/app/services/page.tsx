@@ -50,27 +50,15 @@ export default function ServicesPage() {
       description: "Professional post-production and motion graphics to tell your brand story visually.",
       details: "In the age of short-form content, video is king. Our professional editors bring your raw footage to life with cinematic color grading, advanced sound design, and custom motion graphics. Whether you need high-energy social media Reels, polished corporate presentations, or high-conversion video ads, we deliver content that stops the scroll. We handle the entire post-production pipeline, including VFX, subtitling, and multi-format exporting.",
       imageUrl: "/service_video_editing.png",
-      imageAlt: "Professional video editing suite with timeline and footage"
-    },
-    {
-      icon: <BrainCircuit size={32} />,
-      title: "AI Content Creation",
-      description: "Leveraging generative AI to produce high-quality, data-driven content at scale.",
-      details: "Harness the power of the AI revolution to scale your content production. We integrate advanced LLMs and image generation models into your workflow to produce high-quality blog posts, marketing copy, and visual assets in record time. Our team specializes in prompt engineering and fine-tuning custom models to ensure the AI-generated content maintains your unique brand voice and meets high editorial standards. Scale your output without scaling your overhead.",
-      imageUrl: "/service_ai_content.png",
-      imageAlt: "AI content creation hub with neural network visuals"
-    }
-  ];
-
   return (
     <main>
       <header className="page-header">
         <div className="container">
           <Reveal>
-            <h1>Our Services</h1>
+            <h1>Our Expertise</h1>
           </Reveal>
           <Reveal delay={0.4}>
-            <p style={{ color: "var(--text-muted)" }}>End-to-end digital solutions for the modern era.</p>
+            <p style={{ color: "var(--text-muted)" }}>Harnessing future-ready technology to solve today&apos;s business challenges.</p>
           </Reveal>
         </div>
       </header>
@@ -84,7 +72,7 @@ export default function ServicesPage() {
                   icon={service.icon} 
                   title={service.title} 
                   description={service.description} 
-                  details={service.details}
+                  slug={service.slug}
                   imageUrl={service.imageUrl}
                   imageAlt={service.imageAlt}
                 />
