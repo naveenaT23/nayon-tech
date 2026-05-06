@@ -12,8 +12,15 @@ interface PageProps {
   };
 }
 
+export async function generateStaticParams() {
+  return services.map((service) => ({
+    slug: service.slug,
+  }));
+}
+
 export async function generateMetadata({ params }: PageProps) {
-  const service = services.find((s) => s.slug === params.slug);
+  const { slug } = params;
+  const service = services.find((s) => s.slug === slug);
   if (!service) return { title: "Service Not Found" };
 
   return {
@@ -23,7 +30,8 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 export default function ServiceDetailPage({ params }: PageProps) {
-  const service = services.find((s) => s.slug === params.slug);
+  const { slug } = params;
+  const service = services.find((s) => s.slug === slug);
 
   if (!service) {
     notFound();
