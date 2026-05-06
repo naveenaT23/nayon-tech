@@ -37,15 +37,6 @@ export default async function ServiceDetailPage({ params }: PageProps) {
     notFound();
   }
 
-  const features = [
-    "High-Performance Delivery",
-    "Tailored Strategic Approach",
-    "Expert Support & Maintenance",
-    "Industry-Standard Best Practices",
-    "Data-Driven Decision Making",
-    "Scalable Architecture"
-  ];
-
   return (
     <main>
       <header className="page-header" style={{ padding: "160px 0 80px" }}>
@@ -88,12 +79,20 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               </Reveal>
 
               <Reveal delay={0.4}>
-                <h3>What We Offer</h3>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "1.5rem", marginTop: "1.5rem" }}>
-                  {features.map((feature, i) => (
-                    <div key={i} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                <h3>Our Core Offerings</h3>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.5rem", marginTop: "1.5rem" }}>
+                  {service.offerings.map((offering, i) => (
+                    <div key={i} style={{ 
+                      display: "flex", 
+                      alignItems: "center", 
+                      gap: "12px",
+                      background: "rgba(255,255,255,0.03)",
+                      padding: "1rem 1.5rem",
+                      borderRadius: "12px",
+                      border: "1px solid rgba(255,255,255,0.05)"
+                    }}>
                       <CheckCircle2 size={20} className="text-primary" />
-                      <span style={{ color: "var(--text-main)" }}>{feature}</span>
+                      <span style={{ color: "var(--white)", fontWeight: "500" }}>{offering}</span>
                     </div>
                   ))}
                 </div>
