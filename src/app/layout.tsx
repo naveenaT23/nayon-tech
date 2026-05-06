@@ -58,6 +58,10 @@ export const metadata: Metadata = {
     description: "Empowering businesses through innovative technology solutions and AI-driven growth.",
     images: ["/og-image.png"],
   },
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
   robots: {
     index: true,
     follow: true,

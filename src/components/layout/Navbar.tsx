@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -34,9 +35,15 @@ const Navbar = () => {
   return (
     <nav className={isScrolled ? "scrolled" : ""}>
       <div className="container nav-content">
-        <Link href="/" className="logo">
-          <div className="logo-box"></div>
-          NAYON TECH
+        <Link href="/" className="logo" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          <Image 
+            src="/logo.png" 
+            alt="Nayon Tech Logo" 
+            width={180} 
+            height={60} 
+            className="logo-img"
+            style={{ objectFit: "contain" }}
+          />
         </Link>
 
         <ul className={`nav-links ${isMobileMenuOpen ? "mobile-active" : ""}`}>

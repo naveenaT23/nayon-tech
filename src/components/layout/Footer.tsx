@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Send, Mail, Phone, MapPin } from "lucide-react";
 
 const Footer = () => {
@@ -16,8 +17,14 @@ const Footer = () => {
         <div className="footer-grid">
           <div className="footer-logo">
             <Link href="/" className="logo">
-              <div className="logo-box"></div>
-              NAYON TECH
+              <Image 
+                src="/logo.png" 
+                alt="Nayon Tech Logo" 
+                width={150} 
+                height={50} 
+                className="logo-img"
+                style={{ objectFit: "contain", marginBottom: "0.5rem" }}
+              />
             </Link>
             <p style={{ marginTop: '1rem' }}>
               Empowering the next generation of businesses through innovative technology solutions.
