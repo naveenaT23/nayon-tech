@@ -168,6 +168,20 @@ nav.scrolled {
   -webkit-text-fill-color: transparent;
 }
 
+.modal-header-flex {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .modal-header-flex {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+/* --- Project Cards --- */
 /* --- Hero Section --- */
 #hero {
   height: 100vh;

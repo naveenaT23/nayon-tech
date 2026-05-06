@@ -134,7 +134,7 @@ const ServiceCard = ({ icon, title, description, details, imageUrl, imageAlt }: 
                 <X size={24} />
               </button>
 
-              <div style={{ display: "flex", gap: "2rem", flexDirection: "column", md: { flexDirection: "row" } as any }}>
+              <div className="modal-header-flex">
                 <div style={{ flex: 1 }}>
                   <div className="service-icon" style={{ width: "80px", height: "80px", fontSize: "40px" }}>
                     {icon}
