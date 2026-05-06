@@ -7,35 +7,12 @@ import { Reveal } from "@/components/animations/Reveal";
 import Counter from "@/components/animations/Counter";
 import { Marquee } from "@/components/animations/Marquee";
 import ServiceCard from "@/components/services/ServiceCard";
-
 import { services } from "@/data/services";
+import { blogPosts } from "@/data/blog";
 
 export default function Home() {
   const featuredServices = services.slice(0, 3);
-
-  const recentNews = [
-    {
-      image: "/blog1.png",
-      category: "Creative",
-      date: "May 2026",
-      title: "Impact of AI on Modern Branding",
-      description: "How generative tools are redefining the creative process for global digital agencies."
-    },
-    {
-      image: "/blog2.png",
-      category: "Strategy",
-      date: "April 2026",
-      title: "Conversion Optimization in 2026",
-      description: "Proven marketing tactics to turn digital traffic into loyal brand advocates."
-    },
-    {
-      image: "/blog3.png",
-      category: "Design",
-      date: "April 2026",
-      title: "The Rise of Minimalist UI",
-      description: "Why clean, focused design is winning the attention of the modern digital consumer."
-    }
-  ];
+  const recentNews = blogPosts.slice(0, 3);
 
   const testimonials = [
     {
@@ -262,7 +239,7 @@ export default function Home() {
                     </div>
                     <h3>{post.title}</h3>
                     <p>{post.description}</p>
-                    <Link href="/blog" className="read-more">
+                    <Link href={`/blog/${post.slug}`} className="read-more">
                       Read More <ArrowRight size={14} style={{ display: "inline", marginLeft: "5px" }} />
                     </Link>
                   </div>
