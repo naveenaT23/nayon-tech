@@ -5,8 +5,9 @@ import Counter from "@/components/animations/Counter";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us",
-  description: "Learn more about Nayon Tech's mission, history, and the team behind our innovative technology solutions.",
+  title: "About Us | Pioneering Digital Excellence",
+  description: "Discover the story of Nayon Tech, our mission to empower businesses through technology, and meet our founder Naveena Tirumalaraju.",
+  keywords: ["Nayon Tech Founder", "Naveena Tirumalaraju", "Digital Agency Mission", "Tech Innovation Visakhapatnam"],
 };
 
 export default function AboutPage() {

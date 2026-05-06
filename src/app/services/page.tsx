@@ -5,8 +5,9 @@ import ServiceCard from "@/components/services/ServiceCard";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Services",
-  description: "Comprehensive digital services from Nayon Tech: Web Development, Digital Marketing, UI/UX Design, Branding, Video Editing, and AI Content Creation.",
+  title: "Services | Web Dev, Digital Marketing, UI/UX & AI Solutions",
+  description: "Explore our comprehensive range of digital services, including high-end web development, digital marketing, UI/UX design, branding, video editing, and AI-powered content creation.",
+  keywords: ["Web Development Services", "AI Content Creation", "UI/UX Design Portfolio", "Digital Marketing Agency Visakhapatnam"],
 };
 
 export default function ServicesPage() {

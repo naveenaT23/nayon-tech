@@ -6,8 +6,9 @@ import { Reveal } from "@/components/animations/Reveal";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "View the portfolio of Nayon Tech, showcasing our latest breakthroughs in AI, Fintech, and Cloud solutions.",
+  title: "Portfolio | Showcase of Innovative Digital Solutions",
+  description: "Explore the diverse portfolio of Nayon Tech, featuring web development, e-commerce, construction, and fitness platforms.",
+  keywords: ["Web Development Portfolio", "Digital Agency Case Studies", "Next.js Project Showcase", "Nayon Tech Projects"],
 };
 
 export default function PortfolioPage() {
