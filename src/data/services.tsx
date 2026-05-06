@@ -29,7 +29,11 @@ export const services: Service[] = [
       "Progressive Web Apps (PWA) Development",
       "Headless CMS Implementation",
       "API Development & Third-party Integrations",
-      "Performance & SEO Optimization"
+      "Performance & SEO Optimization",
+      "Cloud Infrastructure & Hosting Setup",
+      "Real-time Database Solutions",
+      "Enterprise Software Development",
+      "Website Maintenance & Security Audits"
     ]
   },
   {
@@ -47,7 +51,11 @@ export const services: Service[] = [
       "Social Media Marketing & Management",
       "Content Strategy & Copywriting",
       "Email Marketing Automation",
-      "Conversion Rate Optimization (CRO)"
+      "Conversion Rate Optimization (CRO)",
+      "Influencer Marketing Campaigns",
+      "Affiliate Marketing Setup",
+      "Brand Reputation Management",
+      "Data Analytics & Competitor Research"
     ]
   },
   {
@@ -65,7 +73,11 @@ export const services: Service[] = [
       "Interactive Prototyping (Figma/Adobe XD)",
       "High-Fidelity UI Design",
       "Design Systems & Brand Integration",
-      "Usability Testing & Iteration"
+      "Usability Testing & Iteration",
+      "Mobile App Interface Design",
+      "Accessibility (WCAG) Compliance",
+      "User Journey Mapping",
+      "Motion UI & Micro-interactions"
     ]
   },
   {
@@ -83,7 +95,11 @@ export const services: Service[] = [
       "Typography & Color Palettes",
       "Brand Guidelines & Documentation",
       "Marketing Collateral Design",
-      "Brand Storytelling & Messaging"
+      "Brand Storytelling & Messaging",
+      "Packaging & Product Design",
+      "Sonic Branding (Audio Identity)",
+      "Corporate Stationery & Merch",
+      "Brand Audit & Revitalization"
     ]
   },
   {
@@ -101,7 +117,11 @@ export const services: Service[] = [
       "Color Correction & Grading",
       "Sound Design & Audio Mastering",
       "Social Media Content Formatting",
-      "Documentary & Corporate Video Editing"
+      "Documentary & Corporate Video Editing",
+      "2D/3D Animation Integration",
+      "Green Screen Removal & Compositing",
+      "Subtitling & Multi-language Captioning",
+      "Live Stream Setup & Production"
     ]
   },
   {
@@ -119,7 +139,11 @@ export const services: Service[] = [
       "Automated Content Workflows",
       "Custom AI Model Fine-tuning",
       "Prompt Engineering & Strategy",
-      "AI-Driven Data Analytics for Content"
+      "AI-Driven Data Analytics for Content",
+      "Synthetic Voiceovers & Audio",
+      "AI-Powered Chatbot Integration",
+      "Generative Video Production",
+      "AI Strategy Consulting for Brands"
     ]
   }
 ];
