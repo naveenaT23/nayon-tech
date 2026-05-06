@@ -35,15 +35,9 @@ const Navbar = () => {
   return (
     <nav className={isScrolled ? "scrolled" : ""}>
       <div className="container nav-content">
-        <Link href="/" className="logo" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <Image 
-            src="/logo.png" 
-            alt="Nayon Tech Logo" 
-            width={240} 
-            height={80} 
-            className="logo-img"
-            style={{ objectFit: "contain" }}
-          />
+        <Link href="/" className="logo">
+          <div className="logo-box"></div>
+          NAYON TECH
         </Link>
 
         <ul className={`nav-links ${isMobileMenuOpen ? "mobile-active" : ""}`}>

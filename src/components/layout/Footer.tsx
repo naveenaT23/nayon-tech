@@ -17,14 +17,8 @@ const Footer = () => {
         <div className="footer-grid">
           <div className="footer-logo">
             <Link href="/" className="logo">
-              <Image 
-                src="/logo.png" 
-                alt="Nayon Tech Logo" 
-                width={200} 
-                height={65} 
-                className="logo-img"
-                style={{ objectFit: "contain", marginBottom: "0.5rem" }}
-              />
+              <div className="logo-box"></div>
+              NAYON TECH
             </Link>
             <p style={{ marginTop: '1rem' }}>
               Empowering the next generation of businesses through innovative technology solutions.
