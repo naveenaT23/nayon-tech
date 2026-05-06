@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nayon Tech | Building the Future, One Line at a Time</title>
+    <meta name="description" content="Nayon Tech is a forward-thinking technology company specializing in AI solutions, cloud services, and digital transformation.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav id="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">
+                <div class="logo-box"></div>
+                NAYON TECH
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-btn" id="mobile-menu-trigger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <canvas id="hero-canvas"></canvas>
+        <div class="container hero-content">
+            <span class="hero-tagline">Innovation Meets Excellence</span>
+            <h1>Building the Future, <br>One Line at a Time</h1>
+            <p>We empower startups and enterprises with cutting-edge AI, cloud solutions, and digital transformation services designed for the next generation of business.</p>
+            <div class="hero-btns">
+                <a href="contact.html" class="btn btn-primary">Get Started</a>
+                <a href="services.html" class="btn btn-outline">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brief Services -->
+    <section id="services-brief">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Our Core Expertise</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div>
+                    <h3>AI & Machine Learning</h3>
+                    <p>Custom AI models and predictive analytics that help businesses automate tasks and make data-driven decisions.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19a3.5 3.5 0 0 0 0-7h-1.5c0-4.42-3.58-8-8-8a8.06 8.06 0 0 0-6 2.74A7.5 7.5 0 0 0 6 19h11.5z"></path></svg></div>
+                    <h3>Cloud Solutions</h3>
+                    <p>Secure and scalable cloud infrastructure using AWS, Azure, and Google Cloud to ensure 99.9% uptime.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+                    <h3>Cybersecurity</h3>
+                    <p>Advanced security audits and implementation of robust protection protocols to safeguard your data.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="services.html" class="btn btn-outline">View All Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Blog Section -->
+    <section id="latest-blog" style="background: rgba(0, 242, 255, 0.01);">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Latest from the Blog</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card reveal">
+                    <div class="blog-image"><img src="blog1.png" alt="AI Future"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta"><span>Artificial Intelligence</span><span>May 2026</span></div>
+                        <h3>The Future of AI in 2026</h3>
+                        <p>Exploring the next wave of generative AI and its impact on enterprise efficiency.</p>
+                        <a href="blog.html" class="read-more">Read More →</a>
+                    </div>
+                </div>
+                <div class="blog-card reveal">
+                    <div class="blog-image"><img src="blog2.png" alt="Security"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta"><span>Cybersecurity</span><span>April 2026</span></div>
+                        <h3>Security in the Quantum Age</h3>
+                        <p>How businesses are preparing for the next generation of cryptographic challenges.</p>
+                        <a href="blog.html" class="read-more">Read More →</a>
+                    </div>
+                </div>
+                <div class="blog-card reveal">
+                    <div class="blog-image"><img src="blog3.png" alt="Cloud"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta"><span>Cloud Computing</span><span>April 2026</span></div>
+                        <h3>Mastering Cloud Native</h3>
+                        <p>A deep dive into Kubernetes and serverless architectures for modern scaling.</p>
+                        <a href="blog.html" class="read-more">Read More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Shared) -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <a href="index.html" class="logo"><div class="logo-box"></div>NAYON TECH</a>
+                    <p>Empowering the next generation of businesses through innovative technology solutions.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Web Development</a></li>
+                        <li><a href="services.html">AI Solutions</a></li>
+                        <li><a href="services.html">Cloud Computing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Newsletter</h4>
+                    <form style="display: flex; gap: 5px; margin-top: 1rem;">
+                        <input type="email" placeholder="Email" style="padding: 0.5rem; background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); color: white; width: 100%;">
+                        <button type="submit" style="background: var(--primary); padding: 0.5rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"><polyline points="22 2 11 13"></polyline><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Nayon Tech. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
