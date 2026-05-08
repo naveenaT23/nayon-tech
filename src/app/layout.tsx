@@ -6,7 +6,6 @@ import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import ScrollProgress from "@/components/animations/ScrollProgress";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
-import WelcomeModal from "@/components/layout/WelcomeModal";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -89,7 +88,6 @@ export default function RootLayout({
           <ScrollProgress />
           <Navbar />
           {children}
-          <WelcomeModal />
           <WhatsAppButton />
           <Footer />
         </SmoothScroll>
