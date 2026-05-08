@@ -5,8 +5,9 @@ import { Reveal } from "@/components/animations/Reveal";
 import ContactForm from "@/components/contact/ContactForm";
 import ScrollIndicator from "@/components/animations/ScrollIndicator";
 import { Parallax } from "@/components/animations/Parallax";
-import PageHeader3D from "@/components/animations/PageHeader3D";
 import type { Metadata } from "next";
+import { Suspense } from "react";
+import DynamicPageHeader3D from "@/components/animations/DynamicPageHeader3D";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -17,7 +18,9 @@ export default function ContactPage() {
   return (
     <main>
       <header className="page-header" style={{ position: "relative", overflow: "hidden", background: "transparent" }}>
-        <PageHeader3D />
+        <Suspense fallback={<div className="absolute inset-0 bg-transparent" />}>
+          <DynamicPageHeader3D />
+        </Suspense>
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
           <Parallax offset={60}>
             <Reveal>
@@ -37,58 +40,56 @@ export default function ContactPage() {
         <div className="container">
           <Reveal>
             <Parallax offset={40}>
-              <div className="contact-wrapper" style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
-                <div className="contact-card-header" style={{ textAlign: "center", borderBottom: "1px solid var(--border-color)", paddingBottom: "2rem" }}>
-                  <h3 style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>Get in Touch</h3>
-                  <p style={{ color: "var(--text-muted)", maxWidth: "700px", margin: "0 auto" }}>
-                    Ready to start your digital transformation journey? Fill out the form below or reach out directly via email or phone.
-                  </p>
-                </div>
-                
-                <div className="contact-card-content">
-                  <div className="contact-info">
-                    <div className="contact-details">
-                      <div className="detail-item">
-                        <div className="detail-icon"><User size={24} /></div>
-                        <div className="detail-text">
-                          <h4>Founder & Owner</h4>
-                          <p>Naveena Tirumalaraju</p>
-                        </div>
+              <div className="contact-wrapper">
+                <div className="contact-info">
+                  <div className="contact-card-header" style={{ borderBottom: "1px solid var(--border-color)", paddingBottom: "2rem", marginBottom: "2rem" }}>
+                    <h3 style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>Get in Touch</h3>
+                    <p style={{ color: "var(--text-muted)" }}>
+                      Ready to start your digital transformation journey? Fill out the form below or reach out directly via email or phone.
+                    </p>
+                  </div>
+                  
+                  <div className="contact-details">
+                    <div className="detail-item">
+                      <div className="detail-icon"><User size={24} /></div>
+                      <div className="detail-text">
+                        <h4>Founder & Owner</h4>
+                        <p>Naveena Tirumalaraju</p>
                       </div>
-                      <div className="detail-item">
-                        <div className="detail-icon"><Mail size={24} /></div>
-                        <div className="detail-text">
-                          <h4>Email</h4>
-                          <p>tirumalarajunaveena@gmail.com</p>
-                        </div>
+                    </div>
+                    <div className="detail-item">
+                      <div className="detail-icon"><Mail size={24} /></div>
+                      <div className="detail-text">
+                        <h4>Email</h4>
+                        <p>tirumalarajunaveena@gmail.com</p>
                       </div>
-                      <div className="detail-item">
-                        <div className="detail-icon"><Phone size={24} /></div>
-                        <div className="detail-text">
-                          <h4>Phone</h4>
-                          <p>+91 7569562240</p>
-                        </div>
+                    </div>
+                    <div className="detail-item">
+                      <div className="detail-icon"><Phone size={24} /></div>
+                      <div className="detail-text">
+                        <h4>Phone</h4>
+                        <p>+91 7569562240</p>
                       </div>
-                      <div className="detail-item">
-                        <div className="detail-icon"><MapPin size={24} /></div>
-                        <div className="detail-text">
-                          <h4>Office</h4>
-                          <p>Pedhagadi VUDA Colony, Pendurthi, Visakhapatnam 531173, Andhra Pradesh, India</p>
-                        </div>
+                    </div>
+                    <div className="detail-item">
+                      <div className="detail-icon"><MapPin size={24} /></div>
+                      <div className="detail-text">
+                        <h4>Office</h4>
+                        <p>Pedhagadi VUDA Colony, Pendurthi, Visakhapatnam 531173, Andhra Pradesh, India</p>
                       </div>
                     </div>
                   </div>
-
-                  <ContactForm />
                 </div>
+
+                <ContactForm />
               </div>
             </Parallax>
           </Reveal>
 
           <Reveal delay={0.4}>
-            <div className="map-placeholder" style={{ height: "350px", overflow: "hidden", padding: 0 }}>
+            <div className="map-placeholder" style={{ height: "450px", overflow: "hidden", padding: 0 }}>
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3799.349635036577!2d83.1932644!3d17.8222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3967d7a7b8e1f5%3A0x6d9f67a7b8e1f5!2sPedhagadi%20VUDA%20Colony%2C%20Pendurthi%2C%20Visakhapatnam%2C%20Andhra%20Pradesh%20531173!5e0!3m2!1sen!2sin!4v1714986000000!5m2!1sen!2sin" 
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1145.9344801944308!2d83.180616824361!3d17.796790292518114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sin!4v1778256648036!5m2!1sen!2sin" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0, filter: "invert(90%) hue-rotate(180deg) brightness(0.8)" }} 

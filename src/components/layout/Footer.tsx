@@ -1,15 +1,16 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Send, Mail, Phone, MapPin } from "lucide-react";
 
 const Footer = () => {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert("Thank you! Your newsletter subscription has been received.");
-  };
+  const [year, setYear] = useState<number | string>("");
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
 
   return (
     <footer>
@@ -79,7 +80,7 @@ const Footer = () => {
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Nayon Tech. All rights reserved.</p>
+          <p>&copy; {year || "2026"} Nayon Tech. All rights reserved.</p>
         </div>
       </div>
     </footer>

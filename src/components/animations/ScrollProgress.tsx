@@ -21,9 +21,9 @@ export default function ScrollProgress() {
         background: "var(--primary)",
         transformOrigin: "0%",
         zIndex: 9999,
-        boxShadow: "0 0 10px var(--primary)"
+        boxShadow: "0 0 10px var(--primary)",
+        scaleX
       }}
-      style={{ scaleX }}
     />
   );
 }

@@ -5,8 +5,9 @@ import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/animations/Reveal";
 import ScrollIndicator from "@/components/animations/ScrollIndicator";
 import { Parallax } from "@/components/animations/Parallax";
-import PageHeader3D from "@/components/animations/PageHeader3D";
 import type { Metadata } from "next";
+import { Suspense } from "react";
+import DynamicPageHeader3D from "@/components/animations/DynamicPageHeader3D";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -19,7 +20,9 @@ export default function BlogPage() {
   return (
     <main>
       <header className="page-header" style={{ position: "relative", overflow: "hidden", background: "transparent" }}>
-        <PageHeader3D />
+        <Suspense fallback={<div className="absolute inset-0 bg-transparent" />}>
+          <DynamicPageHeader3D />
+        </Suspense>
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
           <Parallax offset={60}>
             <Reveal>

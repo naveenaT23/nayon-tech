@@ -5,7 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/animations/Reveal";
 import { Parallax } from "@/components/animations/Parallax";
-import PageHeader3D from "@/components/animations/PageHeader3D";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+const PageHeader3D = dynamic(() => import("@/components/animations/PageHeader3D"), {
+  ssr: false,
+});
 import ScrollIndicator from "@/components/animations/ScrollIndicator";
 import { courses } from "@/data/courses";
 import { BookOpen, Clock, BarChart, ArrowRight, Star, Video, Users, GraduationCap } from "lucide-react";
@@ -15,7 +19,9 @@ export default function CoursesContent() {
   return (
     <main>
       <header className="page-header" style={{ position: "relative", overflow: "hidden", background: "transparent" }}>
-        <PageHeader3D />
+        <Suspense fallback={<div className="absolute inset-0 bg-transparent" />}>
+          <PageHeader3D />
+        </Suspense>
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
           <Parallax offset={60}>
             <Reveal>
