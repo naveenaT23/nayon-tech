@@ -45,7 +45,7 @@ export default function ContactPage() {
                   </p>
                 </div>
                 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem" }} className="contact-card-content">
+                <div className="contact-card-content">
                   <div className="contact-info">
                     <div className="contact-details">
                       <div className="detail-item">

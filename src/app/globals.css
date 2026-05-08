@@ -637,8 +637,14 @@ nav.scrolled .logo-tagline {
 /* --- Portfolio Section --- */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2.5rem;
+}
+
+@media (max-width: 480px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .project-card {
@@ -943,6 +949,11 @@ footer h4 {
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
   }
+
+  .contact-card-content {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1026,6 +1037,12 @@ footer h4 {
 
   .contact-wrapper {
     padding: 1.5rem;
+    gap: 2rem;
+  }
+
+  .contact-card-content {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
   }
 
   .map-placeholder {
@@ -1045,6 +1062,20 @@ footer h4 {
 
   .section-header h2 {
     font-size: 1.8rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .footer-logo {
+    align-items: center;
+  }
+
+  .social-links {
+    justify-content: center;
   }
 
   .stat-number {
