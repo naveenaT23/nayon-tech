@@ -3,7 +3,16 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   trailingSlash: true,
   images: {
-    domains: ['media.giphy.com', 'i.giphy.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'media.giphy.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.giphy.com',
+      },
+    ],
   },
   async redirects() {
     return [
