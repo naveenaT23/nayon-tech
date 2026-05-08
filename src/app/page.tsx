@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const featuredServices = services;
+  const featuredServices = services.slice(0, 4);
   const recentNews = blogPosts.slice(0, 3);
 
   const testimonials = [
