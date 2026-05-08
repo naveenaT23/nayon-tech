@@ -1,5 +1,10 @@
-import { Code2, Palette, BrainCircuit, Megaphone, PenTool, Video } from "lucide-react";
+import { Code2, Palette, BrainCircuit, Megaphone, Bot } from "lucide-react";
 import React from "react";
+
+export interface ServiceOffering {
+  title: string;
+  description: string;
+}
 
 export interface Service {
   id: string;
@@ -10,7 +15,8 @@ export interface Service {
   details: string;
   imageUrl: string;
   imageAlt: string;
-  offerings: string[];
+  offerings: ServiceOffering[];
+  btnLabel?: string;
 }
 
 export const services: Service[] = [
@@ -19,21 +25,20 @@ export const services: Service[] = [
     slug: "web-development",
     icon: <Code2 size={32} />,
     title: "Web Development",
-    description: "Building ultra-fast, scalable web applications that deliver world-class user experiences.",
-    details: "Our web development process is built on speed and security. We specialize in high-performance frameworks like Next.js and React to build everything from dynamic SaaS platforms to immersive creative portfolios. Every line of code is optimized for SEO and conversion, ensuring your business has a rock-solid digital foundation that scales with your ambition. We also offer cloud integration, API development, and e-commerce solutions tailored to your business needs.",
+    description: "High-performance websites and web apps built on Next.js.",
+    details: "From rapid prototypes to enterprise-grade platforms. Our web development process is built on speed, security, and scalability. We specialize in high-performance frameworks like Next.js and React to build everything from dynamic SaaS platforms to immersive creative portfolios.",
     imageUrl: "/service_web_dev.png",
-    imageAlt: "Futuristic web development workstation with glowing code on monitors",
+    imageAlt: "Enterprise AI-driven web development and Next.js engineering workstation with holographic interfaces",
     offerings: [
-      "Custom Web Applications (Next.js, React)",
-      "E-commerce Platforms & Payment Integration",
-      "Progressive Web Apps (PWA) Development",
-      "Headless CMS Implementation",
-      "API Development & Third-party Integrations",
-      "Performance & SEO Optimization",
-      "Cloud Infrastructure & Hosting Setup",
-      "Real-time Database Solutions",
-      "Enterprise Software Development",
-      "Website Maintenance & Security Audits"
+      { title: "Web Development", description: "Custom React, Angular, and Next.js web applications." },
+      { title: "WordPress Solutions", description: "Custom themes, plugins, and scalable CMS architectures." },
+      { title: "E-commerce Stores", description: "High-converting stores on Shopify, WooCommerce & Magento." },
+      { title: "Mobile Apps", description: "Native iOS/Android and Cross-platform (Flutter) development." },
+      { title: "App Development", description: "Enterprise SaaS platforms and custom software solutions." },
+      { title: "AI Web Integration", description: "Smart chatbots, recommendation engines, and LLM features." },
+      { title: "AI Automation", description: "Automate workflows and business processes with intelligent bots." },
+      { title: "Website Maintenance", description: "Keeping your digital assets secure, fast, and up-to-date." },
+      { title: "AI-Powered UX", description: "Personalized user journeys and predictive interface adjustments." }
     ]
   },
   {
@@ -41,109 +46,89 @@ export const services: Service[] = [
     slug: "digital-marketing",
     icon: <Megaphone size={32} />,
     title: "Digital Marketing",
-    description: "Data-driven strategies that amplify your brand reach and drive measurable growth.",
-    details: "We don't just run ads; we engineer growth. Our digital marketing suite includes SEO, SEM, social media management, and performance marketing. By leveraging advanced analytics and consumer psychology, we create campaigns that cut through the noise and deliver high ROI. Our team focuses on customer acquisition cost (CAC) and lifetime value (LTV) to ensure sustainable business scaling.",
+    description: "Data-driven strategies to scale your traffic and revenue.",
+    details: "Traditional expertise meets modern AI acceleration. We don't just run ads; we engineer growth. Our digital marketing suite is designed to dominate the market by combining data-driven strategy with ML-powered insights.",
     imageUrl: "/service_marketing.png",
-    imageAlt: "Modern digital marketing dashboard with growth metrics and social media icons",
+    imageAlt: "Digital marketing control center featuring AI-powered predictive analytics and data visualization",
     offerings: [
-      "Search Engine Optimization (SEO)",
-      "Pay-Per-Click (PPC) Advertising",
-      "Social Media Marketing & Management",
-      "Content Strategy & Copywriting",
-      "Email Marketing Automation",
-      "Conversion Rate Optimization (CRO)",
-      "Influencer Marketing Campaigns",
-      "Affiliate Marketing Setup",
-      "Brand Reputation Management",
-      "Data Analytics & Competitor Research"
+      { title: "SEO Optimization", description: "Comprehensive organic search strategy for long-term growth." },
+      { title: "Local SEO", description: "Dominate local maps and 'near me' searches." },
+      { title: "E-commerce SEO", description: "Drive sales with product and category optimization." },
+      { title: "Enterprise SEO", description: "Scalable solutions for massive sites and detailed architecture." },
+      { title: "Google LSA", description: "Get the Google Guarantee badge and pay per lead." },
+      { title: "Predictive Analytics", description: "Forecast trends and customer behavior with ML." },
+      { title: "Lead Generation", description: "Fuel your sales pipeline with high-quality leads." },
+      { title: "Strategy Consulting", description: "CMO-level advice to dominate your market." },
+      { title: "PPC Advertising", description: "ROI-focused campaigns on Google and Social platforms." },
+      { title: "Social Media", description: "Engage your community and build brand loyalty." },
+      { title: "Reporting & Data", description: "Turn complex analytics into clear, actionable dashboards." },
+      { title: "App Marketing", description: "User acquisition and retention for mobile apps." },
+      { title: "Email Marketing", description: "Automated flows that nurture leads into customers." },
+      { title: "CRO", description: "Turn more visitors into customers with A/B testing." },
+      { title: "Reputation Mgmt", description: "Protect and enhance your brand's online image." }
     ]
   },
   {
     id: "3",
-    slug: "ui-ux-design",
+    slug: "graphic-design",
     icon: <Palette size={32} />,
-    title: "UI/UX Design",
-    description: "Creating intuitive, beautiful interfaces that prioritize user needs and brand identity.",
-    details: "Great design is invisible. We focus on creating seamless user journeys that make using your product a delight. Our UI/UX process involves deep research, wireframing, prototyping, and rigorous testing. We blend high-end aesthetics with functional design systems to ensure consistency and usability across all platforms. From mobile apps to complex enterprise software, we design for the human behind the screen.",
+    title: "Graphic Design",
+    description: "Brand identities, logos, and UI/UX that captivate.",
+    details: "From static assets to dynamic motion graphics, powered by the latest design tech. We help you define your voice, values, and visual identity. Our branding process covers everything from logo design and typography to brand guidelines and messaging strategy.",
     imageUrl: "/service_uiux.png",
-    imageAlt: "Designer working on a sleek UI layout using a digital tablet",
+    imageAlt: "Premium UI/UX design studio with generative AI branding and holographic interface prototypes",
     offerings: [
-      "User Research & Personas",
-      "Information Architecture & Wireframing",
-      "Interactive Prototyping (Figma/Adobe XD)",
-      "High-Fidelity UI Design",
-      "Design Systems & Brand Integration",
-      "Usability Testing & Iteration",
-      "Mobile App Interface Design",
-      "Accessibility (WCAG) Compliance",
-      "User Journey Mapping",
-      "Motion UI & Micro-interactions"
+      { title: "Product Design", description: "Physical and digital product design that solves real user problems." },
+      { title: "UI/UX Design", description: "Intuitive interfaces and seamless user experiences for web and mobile." },
+      { title: "Digital Product Design", description: "SaaS dashboards, app interfaces, and complex digital platforms." },
+      { title: "Digital Assets", description: "Icon sets, stock photography, and virtual goods for your brand." },
+      { title: "Generative AI Art", description: "Unique AI-generated illustrations, photos, and concepts." },
+      { title: "Video Editing", description: "Professional editing for social reels, corporate videos, and ads." },
+      { title: "Motion Graphics", description: "Animated logos and explainer videos that grab attention." },
+      { title: "Logo & Branding", description: "Memorable identities that define your business." },
+      { title: "Marketing Collaterals", description: "Brochures, flyers, and decks that sell." },
+      { title: "Digital Banners", description: "High-CTR ad creatives for Google and Social." },
+      { title: "Social Media Graphics", description: "Engaging visuals for your daily social content." },
+      { title: "Brochure Design", description: "Print-ready assets for physical marketing." }
     ]
   },
   {
     id: "4",
-    slug: "logo-branding",
-    icon: <PenTool size={32} />,
-    title: "Logo & Branding",
-    description: "Forging iconic brand identities that resonate with your audience and stand the test of time.",
-    details: "Your brand is more than a logo; it's an experience. We help you define your voice, values, and visual identity. Our branding process covers everything from logo design and typography to brand guidelines and messaging strategy. We create cohesive brand ecosystems that build trust and loyalty. Whether you're a startup looking for a soul or an established company seeking a refresh, we help you stand out in a crowded market.",
-    imageUrl: "/service_branding.png",
-    imageAlt: "Professional branding concept sketches and minimalist logo designs",
+    slug: "ai-automation",
+    icon: <Bot size={32} />,
+    title: "AI Automation & Consulting",
+    description: "Intelligent agents and workflows to automate your business.",
+    details: "We build custom GPTs, automate complex workflows, and deploy intelligent support bots that learn and grow with your business. Our AI consulting services help you identify the highest-impact opportunities for automation, saving you hundreds of hours of manual labor while improving accuracy and customer satisfaction.",
+    imageUrl: "/service_ai_content.png",
+    imageAlt: "Advanced AI automation hub deploying intelligent agents and custom GPT workflows for enterprise",
     offerings: [
-      "Logo Design & Visual Identity",
-      "Brand Strategy & Positioning",
-      "Typography & Color Palettes",
-      "Brand Guidelines & Documentation",
-      "Marketing Collateral Design",
-      "Brand Storytelling & Messaging",
-      "Packaging & Product Design",
-      "Sonic Branding (Audio Identity)",
-      "Corporate Stationery & Merch",
-      "Brand Audit & Revitalization"
-    ]
+      { title: "Custom GPT Development", description: "Bespoke AI models trained on your specific business data." },
+      { title: "Workflow Automation", description: "Connecting your tools with intelligent, self-operating flows." },
+      { title: "Intelligent Chatbots", description: "Next-gen support bots that handle complex queries naturally." },
+      { title: "AI Strategy Consulting", description: "Expert guidance on integrating AI into your business model." },
+      { title: "LLM Implementation", description: "Deploying Large Language Models for advanced text processing." },
+      { title: "Automated Content Engines", description: "Scalable AI systems for high-quality content production." },
+      { title: "AI Data Analysis", description: "Uncovering deep insights from your data using machine learning." },
+      { title: "Predictive Modeling", description: "Forecasting future trends and behaviors with high accuracy." }
+    ],
+    btnLabel: "Automate Now"
   },
   {
     id: "5",
-    slug: "video-editing",
-    icon: <Video size={32} />,
-    title: "Video Editing",
-    description: "Crafting cinematic visual stories that capture attention and engage your audience.",
-    details: "In a video-first world, quality content is king. Our video editing services transform raw footage into compelling narratives. We specialize in commercial ads, social media content, corporate videos, and motion graphics. With professional color grading, sound design, and seamless transitions, we ensure your videos look and feel high-end. We optimize content for every platform, from high-definition YouTube videos to viral TikTok and Reel formats.",
-    imageUrl: "/service_video_editing.png",
-    imageAlt: "Professional video editing suite with dual monitors and timeline editing",
-    offerings: [
-      "Commercial & Ad Film Editing",
-      "Motion Graphics & Visual Effects (VFX)",
-      "Color Correction & Grading",
-      "Sound Design & Audio Mastering",
-      "Social Media Content Formatting",
-      "Documentary & Corporate Video Editing",
-      "2D/3D Animation Integration",
-      "Green Screen Removal & Compositing",
-      "Subtitling & Multi-language Captioning",
-      "Live Stream Setup & Production"
-    ]
-  },
-  {
-    id: "6",
     slug: "ai-content-creation",
     icon: <BrainCircuit size={32} />,
     title: "AI Content Creation",
-    description: "Leveraging cutting-edge AI to produce high-quality content at scale without losing brand soul.",
-    details: "The future of content is augmented. We use state-of-the-art AI tools to streamline content production while maintaining a human-centric approach. From AI-generated imagery and copywriting to automated video scripts, we help you stay ahead of the curve. Our process ensures that AI-enhanced content remains authentic to your brand voice and meets the highest quality standards. Scale your content output without blowing your budget or sacrificing creativity.",
+    description: "Scale your creative output with high-end generative AI solutions.",
+    details: "We leverage state-of-the-art generative models to produce high-quality text, images, and video content at scale. From automated social media engines to personalized marketing copy, our AI content solutions help you maintain a consistent, world-class brand voice while significantly reducing production time and costs.",
     imageUrl: "/service_ai_content.png",
-    imageAlt: "Glowing AI brain visualization representing digital content creation",
+    imageAlt: "Professional AI content creation studio with holographic synthesis of text and visual media",
     offerings: [
-      "AI-Generated Visuals & Artistry",
-      "LLM-Powered Copywriting & Scripts",
-      "Automated Content Workflows",
-      "Custom AI Model Fine-tuning",
-      "Prompt Engineering & Strategy",
-      "AI-Driven Data Analytics for Content",
-      "Synthetic Voiceovers & Audio",
-      "AI-Powered Chatbot Integration",
-      "Generative Video Production",
-      "AI Strategy Consulting for Brands"
+      { title: "Generative Copywriting", description: "High-converting ad copy, blog posts, and product descriptions." },
+      { title: "AI Image Synthesis", description: "Custom photorealistic and artistic visuals for any brand need." },
+      { title: "AI Video Production", description: "Automated video content for reels, ads, and training modules." },
+      { title: "Voice Synthesis", description: "Natural-sounding AI voiceovers in multiple languages and tones." },
+      { title: "Content Personalization", description: "Dynamic content that adapts to individual user preferences." },
+      { title: "Social Media Automation", description: "End-to-end AI pipelines for daily social content generation." }
     ]
   }
 ];

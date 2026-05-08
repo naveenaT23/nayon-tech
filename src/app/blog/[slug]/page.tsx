@@ -5,6 +5,9 @@ import Link from "next/link";
 import { ArrowLeft, Calendar, User, Tag } from "lucide-react";
 import { blogPosts } from "@/data/blog";
 import { Reveal } from "@/components/animations/Reveal";
+import { Parallax } from "@/components/animations/Parallax";
+import ScrollIndicator from "@/components/animations/ScrollIndicator";
+import PageHeader3D from "@/components/animations/PageHeader3D";
 
 interface PageProps {
   params: Promise<{
@@ -39,26 +42,32 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <main>
-      <header className="page-header" style={{ padding: "160px 0 60px" }}>
-        <div className="container">
-          <Reveal>
-            <Link href="/blog" className="btn btn-outline" style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "2.5rem", padding: "0.5rem 1rem" }}>
-              <ArrowLeft size={16} /> Back to Blog
-            </Link>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <div className="blog-meta" style={{ marginBottom: "1.5rem", fontSize: "0.9rem", opacity: 0.8 }}>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", marginRight: "20px" }}>
-                <Tag size={14} className="text-primary" /> {post.category}
-              </span>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
-                <Calendar size={14} className="text-primary" /> {post.date}
-              </span>
-            </div>
-          </Reveal>
-          <Reveal delay={0.4}>
-            <h1 style={{ fontSize: "3.5rem", lineHeight: "1.1", maxWidth: "900px" }}>{post.title}</h1>
-          </Reveal>
+      <header className="page-header" style={{ padding: "160px 0 60px", position: "relative", overflow: "hidden", background: "transparent" }}>
+        <PageHeader3D />
+        <div className="container" style={{ position: "relative", zIndex: 1 }}>
+          <Parallax offset={40}>
+            <Reveal>
+              <Link href="/blog" className="btn btn-outline" style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "2.5rem", padding: "0.5rem 1rem" }}>
+                <ArrowLeft size={16} /> Back to Blog
+              </Link>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <div className="blog-meta" style={{ marginBottom: "1.5rem", fontSize: "0.9rem", opacity: 0.8 }}>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", marginRight: "20px" }}>
+                  <Tag size={14} className="text-primary" /> {post.category}
+                </span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                  <Calendar size={14} className="text-primary" /> {post.date}
+                </span>
+              </div>
+            </Reveal>
+            <Reveal delay={0.4}>
+              <h1 style={{ fontSize: "3.5rem", lineHeight: "1.1", maxWidth: "900px" }}>{post.title}</h1>
+            </Reveal>
+            <Reveal delay={0.8}>
+              <ScrollIndicator targetId="blog-content" className="relative" />
+            </Reveal>
+          </Parallax>
         </div>
       </header>
 
@@ -66,23 +75,25 @@ export default async function BlogPostPage({ params }: PageProps) {
         <div className="container">
           <div style={{ maxWidth: "900px", margin: "0 auto" }}>
             <Reveal delay={0.6}>
-              <div style={{ 
-                position: "relative", 
-                width: "100%", 
-                aspectRatio: "21/9", 
-                borderRadius: "24px", 
-                overflow: "hidden",
-                marginBottom: "4rem",
-                border: "1px solid var(--border-color)",
-                boxShadow: "0 20px 60px rgba(0,0,0,0.4)"
-              }}>
-                <Image 
-                  src={post.image} 
-                  alt={post.title} 
-                  fill 
-                  className="object-cover"
-                />
-              </div>
+              <Parallax offset={50}>
+                <div style={{ 
+                  position: "relative", 
+                  width: "100%", 
+                  aspectRatio: "21/9", 
+                  borderRadius: "24px", 
+                  overflow: "hidden",
+                  marginBottom: "4rem",
+                  border: "1px solid var(--border-color)",
+                  boxShadow: "0 20px 60px rgba(0,0,0,0.4)"
+                }}>
+                  <Image 
+                    src={post.image} 
+                    alt={post.title} 
+                    fill 
+                    className="object-cover"
+                  />
+                </div>
+              </Parallax>
             </Reveal>
 
             <Reveal delay={0.8}>

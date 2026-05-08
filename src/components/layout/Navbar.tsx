@@ -25,8 +25,9 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "Services", path: "/services" },
     { name: "About", path: "/about" },
+    { name: "Services", path: "/services" },
+    { name: "Courses", path: "/courses" },
     { name: "Portfolio", path: "/portfolio" },
     { name: "Blog", path: "/blog" },
     { name: "Contact", path: "/contact" },
@@ -36,8 +37,18 @@ const Navbar = () => {
     <nav className={isScrolled ? "scrolled" : ""}>
       <div className="container nav-content">
         <Link href="/" className="logo">
-          <div className="logo-box"></div>
-          NAYON TECH
+          <Image 
+            src="/logo.png" 
+            alt="Nayon Tech Logo" 
+            width={150} 
+            height={150} 
+            priority
+            className="logo-img"
+          />
+          <div className="logo-brand">
+            <span className="logo-text">Nayon Tech</span>
+            <span className="logo-tagline">We Set Your Tomorrow</span>
+          </div>
         </Link>
 
         <ul className={`nav-links ${isMobileMenuOpen ? "mobile-active" : ""}`}>
@@ -45,7 +56,7 @@ const Navbar = () => {
             <li key={link.path}>
               <Link
                 href={link.path}
-                className={pathname === link.path ? "active" : ""}
+                className={pathname === link.path || (link.path !== '/' && pathname.startsWith(link.path)) ? "active" : ""}
               >
                 {link.name}
               </Link>

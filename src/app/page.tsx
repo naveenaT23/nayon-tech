@@ -7,11 +7,20 @@ import { Reveal } from "@/components/animations/Reveal";
 import Counter from "@/components/animations/Counter";
 import { Marquee } from "@/components/animations/Marquee";
 import ServiceCard from "@/components/services/ServiceCard";
+import ScrollIndicator from "@/components/animations/ScrollIndicator";
+import { Parallax } from "@/components/animations/Parallax";
+import { ParallaxImage } from "@/components/animations/ParallaxImage";
 import { services } from "@/data/services";
 import { blogPosts } from "@/data/blog";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Nayon Tech | AI Automation & Next.js Development Agency",
+  description: "Scale your business with futuristic AI automation, high-performance Next.js development, and world-class digital design from Nayon Tech's expert team.",
+};
 
 export default function Home() {
-  const featuredServices = services.slice(0, 3);
+  const featuredServices = services;
   const recentNews = blogPosts.slice(0, 3);
 
   const testimonials = [
@@ -48,20 +57,25 @@ export default function Home() {
       <section id="hero">
         <HeroCanvas />
         <div className="container hero-content">
-          <Reveal>
-            <span className="hero-tagline">Innovation Meets Excellence</span>
-          </Reveal>
-          <Reveal delay={0.4}>
-            <h1>Building the Future, <br />One Line at a Time</h1>
-          </Reveal>
-          <Reveal delay={0.6}>
-            <p>We empower startups and enterprises with cutting-edge AI, cloud solutions, and digital transformation services designed for the next generation of business.</p>
-          </Reveal>
-          <Reveal delay={0.8}>
-            <div className="hero-btns">
-              <Link href="/contact" className="btn btn-primary">Get Started</Link>
-              <Link href="/services" className="btn btn-outline">Our Services</Link>
-            </div>
+          <Parallax offset={100}>
+            <Reveal>
+              <span className="hero-tagline">Innovation Meets Excellence</span>
+            </Reveal>
+            <Reveal delay={0.4}>
+              <h1>Elite AI Automation & Next.js Development Agency</h1>
+            </Reveal>
+            <Reveal delay={0.6}>
+              <p>We empower startups and enterprises with cutting-edge AI, cloud solutions, and digital transformation services designed for the next generation of business.</p>
+            </Reveal>
+            <Reveal delay={0.8}>
+              <div className="hero-btns">
+                <Link href="/contact" className="btn btn-primary">Get Started</Link>
+                <Link href="/services" className="btn btn-outline">Our Services</Link>
+              </div>
+            </Reveal>
+          </Parallax>
+          <Reveal delay={1.2}>
+            <ScrollIndicator targetId="services-brief" />
           </Reveal>
         </div>
       </section>
@@ -70,23 +84,31 @@ export default function Home() {
       <section id="services-brief">
         <div className="container">
           <Reveal>
-            <div className="section-header">
-              <h2>Our Core Expertise</h2>
-              <div className="underline"></div>
+            <div className="section-header" style={{ textAlign: "center", marginBottom: "4rem" }}>
+              <h2 style={{ fontSize: "3rem" }}>Strategic Digital Services for Global Growth</h2>
+              <p style={{ color: "var(--primary)", fontSize: "1.2rem", marginTop: "1rem" }}>
+                End-to-end digital solutions designed for growth.
+              </p>
+              <div className="underline" style={{ margin: "1.5rem auto" }}></div>
             </div>
           </Reveal>
           
-          <div className="services-grid">
+          <div className="home-services-grid">
             {featuredServices.map((service, index) => (
-              <Reveal key={index} delay={index * 0.2}>
-                <ServiceCard 
-                  icon={service.icon} 
-                  title={service.title} 
-                  description={service.description} 
-                  slug={service.slug}
-                  imageUrl={service.imageUrl}
-                  imageAlt={service.imageAlt}
-                />
+              <Reveal key={service.id} delay={index * 0.2} height="100%">
+                <Parallax offset={20} style={{ height: "100%" }}>
+                  <ServiceCard 
+                    icon={service.icon} 
+                    title={service.title} 
+                    description={service.description} 
+                    slug={service.slug}
+                    imageUrl={service.imageUrl}
+                    imageAlt={service.imageAlt}
+                    offerings={service.offerings}
+                    btnLabel="Explore"
+                    showOfferings={false}
+                  />
+                </Parallax>
               </Reveal>
             ))}
           </div>
@@ -102,11 +124,11 @@ export default function Home() {
       {/* Stats Section */}
       <section id="stats-section" style={{ 
         position: "relative",
-        background: "url('/home_stats_bg.png') center/cover no-repeat",
         borderTop: "1px solid var(--border-color)", 
-        borderBottom: "1px solid var(--border-color)" 
+        borderBottom: "1px solid var(--border-color)",
+        overflow: "hidden"
       }}>
-        <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", background: "rgba(5, 6, 10, 0.8)", zIndex: 1 }}></div>
+        <ParallaxImage src="/home_stats_bg.png" alt="Statistics background" overlayOpacity={0.85} />
         <div className="container" style={{ position: "relative", zIndex: 2 }}>
           <div className="stats-grid">
             {stats.map((stat, index) => (
@@ -121,9 +143,9 @@ export default function Home() {
       {/* Why Choose Us */}
       <section id="why-us" style={{
         position: "relative",
-        background: "url('/home_why_us_bg.png') center/cover no-repeat",
+        overflow: "hidden"
       }}>
-        <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", background: "linear-gradient(to right, var(--bg-color) 40%, rgba(5, 6, 10, 0.7))", zIndex: 1 }}></div>
+        <ParallaxImage src="/home_why_us_bg.png" alt="Why us background" overlayOpacity={0.9} offset={150} />
         <div className="container" style={{ position: "relative", zIndex: 2 }}>
           <div className="about-flex">
             <div className="about-text">
@@ -193,20 +215,22 @@ export default function Home() {
           </Reveal>
         </div>
         
-        <Marquee speed={30}>
-          {testimonials.map((t, index) => (
-            <div key={index} className="testimonial-card" style={{ width: "400px", flexShrink: 0, whiteSpace: "normal" }}>
-              <div className="rating">
-                {[...Array(t.rating)].map((_, i) => <Star key={i} size={16} fill="currentColor" style={{ display: "inline" }} />)}
+        <Parallax offset={40}>
+          <Marquee speed={30}>
+            {testimonials.map((t, index) => (
+              <div key={index} className="testimonial-card" style={{ width: "400px", flexShrink: 0, whiteSpace: "normal" }}>
+                <div className="rating">
+                  {[...Array(t.rating)].map((_, i) => <Star key={i} size={16} fill="currentColor" style={{ display: "inline" }} />)}
+                </div>
+                <p style={{ fontStyle: "italic", marginBottom: "1.5rem" }}>&quot;{t.content}&quot;</p>
+                <div>
+                  <h4 style={{ fontSize: "1rem", color: "var(--white)" }}>{t.name}</h4>
+                  <p style={{ fontSize: "0.8rem", color: "var(--primary)" }}>{t.role}</p>
+                </div>
               </div>
-              <p style={{ fontStyle: "italic", marginBottom: "1.5rem" }}>&quot;{t.content}&quot;</p>
-              <div>
-                <h4 style={{ fontSize: "1rem", color: "var(--white)" }}>{t.name}</h4>
-                <p style={{ fontSize: "0.8rem", color: "var(--primary)" }}>{t.role}</p>
-              </div>
-            </div>
-          ))}
-        </Marquee>
+            ))}
+          </Marquee>
+        </Parallax>
       </section>
 
       {/* Latest Blog Section */}
@@ -222,28 +246,30 @@ export default function Home() {
           <div className="blog-grid">
             {recentNews.map((post, index) => (
               <Reveal key={index} delay={index * 0.2}>
-                <div className="blog-card">
-                  <div className="blog-image">
-                    <Image 
-                      src={post.image} 
-                      alt={post.title} 
-                      width={400} 
-                      height={250} 
-                      className="object-cover w-full h-full"
-                    />
-                  </div>
-                  <div className="blog-content">
-                    <div className="blog-meta">
-                      <span>{post.category}</span>
-                      <span>{post.date}</span>
+                <Parallax offset={30 * (index + 1)}>
+                  <div className="blog-card">
+                    <div className="blog-image">
+                      <Image 
+                        src={post.image} 
+                        alt={post.title} 
+                        width={400} 
+                        height={250} 
+                        className="object-cover w-full h-full"
+                      />
                     </div>
-                    <h3>{post.title}</h3>
-                    <p>{post.description}</p>
-                    <Link href={`/blog/${post.slug}`} className="read-more">
-                      Read More <ArrowRight size={14} style={{ display: "inline", marginLeft: "5px" }} />
-                    </Link>
+                    <div className="blog-content">
+                      <div className="blog-meta">
+                        <span>{post.category}</span>
+                        <span>{post.date}</span>
+                      </div>
+                      <h3>{post.title}</h3>
+                      <p>{post.description}</p>
+                      <Link href={`/blog/${post.slug}`} className="read-more">
+                        Read More <ArrowRight size={14} style={{ display: "inline", marginLeft: "5px" }} />
+                      </Link>
+                    </div>
                   </div>
-                </div>
+                </Parallax>
               </Reveal>
             ))}
           </div>
@@ -255,10 +281,9 @@ export default function Home() {
         textAlign: "center", 
         padding: "120px 0",
         position: "relative",
-        background: "url('/home_cta_bg.png') center/cover no-repeat",
         overflow: "hidden"
       }}>
-        <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", background: "radial-gradient(circle, rgba(112, 0, 255, 0.4) 0%, var(--bg-color) 80%)", zIndex: 1 }}></div>
+        <ParallaxImage src="/home_cta_bg.png" alt="CTA background" overlayOpacity={0.8} offset={200} />
         <div className="container" style={{ position: "relative", zIndex: 2 }}>
           <Reveal>
             <h2 style={{ fontSize: "3rem", marginBottom: "1.5rem" }}>Ready to Ignite Your Brand?</h2>

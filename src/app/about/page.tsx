@@ -2,12 +2,14 @@ import React from "react";
 import Image from "next/image";
 import { Reveal } from "@/components/animations/Reveal";
 import Counter from "@/components/animations/Counter";
+import ScrollIndicator from "@/components/animations/ScrollIndicator";
+import { Parallax } from "@/components/animations/Parallax";
+import PageHeader3D from "@/components/animations/PageHeader3D";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us | Pioneering Digital Excellence",
-  description: "Discover the story of Nayon Tech, our mission to empower businesses through technology, and meet our founder Naveena Tirumalaraju.",
-  keywords: ["Nayon Tech Founder", "Naveena Tirumalaraju", "Digital Agency Mission", "Tech Innovation Visakhapatnam"],
+  title: "About Nayon Tech | Leading AI & Tech Strategy Partners",
+  description: "Learn how Nayon Tech empowers global innovators through elite AI automation, high-performance web development, and visionary digital strategy.",
 };
 
 export default function AboutPage() {
@@ -20,14 +22,20 @@ export default function AboutPage() {
 
   return (
     <main>
-      <header className="page-header">
-        <div className="container">
-          <Reveal>
-            <h1>About Nayon Tech</h1>
-          </Reveal>
-          <Reveal delay={0.4}>
-            <p style={{ color: "var(--text-muted)" }}>Pioneering the digital frontier since 2021.</p>
-          </Reveal>
+      <header className="page-header" style={{ position: "relative", overflow: "hidden", background: "transparent" }}>
+        <PageHeader3D />
+        <div className="container" style={{ position: "relative", zIndex: 1 }}>
+          <Parallax offset={60}>
+            <Reveal>
+              <h1>Expert AI Automation & Digital Strategy</h1>
+            </Reveal>
+            <Reveal delay={0.4}>
+              <p style={{ color: "var(--text-muted)" }}>Pioneering the digital frontier since 2021.</p>
+            </Reveal>
+            <Reveal delay={0.8}>
+              <ScrollIndicator targetId="mission" className="relative" />
+            </Reveal>
+          </Parallax>
         </div>
       </header>
 
@@ -73,23 +81,57 @@ export default function AboutPage() {
               </Reveal>
             </div>
             
-            <div className="founder-image" style={{ 
-              flex: 1, 
-              aspectRatio: "1/1", 
-              maxWidth: "400px", 
-              borderRadius: "20px",
-              position: "relative",
-              overflow: "hidden",
-              border: "1px solid var(--border-color)",
-              boxShadow: "0 20px 40px rgba(0,0,0,0.4)"
-            }}>
-              <Image 
-                src="/founder.png" 
-                alt="Naveena Tirumalaraju - Founder of Nayon Tech" 
-                fill
-                className="object-cover"
-              />
-            </div>
+            <Parallax offset={30} className="founder-parallax" style={{ flex: 1 }}>
+              <div className="founder-image" style={{ 
+                width: "100%", 
+                aspectRatio: "1/1", 
+                maxWidth: "400px", 
+                borderRadius: "20px",
+                position: "relative",
+                overflow: "hidden",
+                border: "1px solid var(--border-color)",
+                boxShadow: "0 20px 40px rgba(0,0,0,0.4)"
+              }}>
+                <Image 
+                  src="/founder.png" 
+                  alt="Naveena Tirumalaraju - Founder of Nayon Tech" 
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </Parallax>
+          </div>
+        </div>
+      </section>
+
+      <section id="global-reach" style={{ background: "rgba(0, 242, 255, 0.02)" }}>
+        <div className="container">
+          <div className="section-header">
+            <h2>Global Reach</h2>
+            <p style={{ color: "var(--primary)" }}>Partnering with innovators across the world.</p>
+            <div className="underline"></div>
+          </div>
+          
+          <div className="services-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))" }}>
+            {[
+              { country: "India", flag: "🇮🇳", desc: "Our core engineering hub, delivering excellence from Visakhapatnam to the nation." },
+              { country: "Singapore", flag: "🇸🇬", desc: "Driving fintech and AI innovation in the heart of Southeast Asia's tech capital." },
+              { country: "USA", flag: "🇺🇸", desc: "Partnering with Silicon Valley startups and enterprises across the United States." }
+            ].map((item, i) => (
+              <Reveal key={i} delay={i * 0.2}>
+                <div style={{ 
+                  background: "rgba(255,255,255,0.03)", 
+                  padding: "3rem 2rem", 
+                  borderRadius: "24px", 
+                  textAlign: "center",
+                  border: "1px solid rgba(255,255,255,0.05)"
+                }}>
+                  <div style={{ fontSize: "4rem", marginBottom: "1.5rem" }}>{item.flag}</div>
+                  <h3 style={{ fontSize: "1.8rem", marginBottom: "1rem" }}>{item.country}</h3>
+                  <p style={{ color: "var(--text-muted)", fontSize: "1rem", lineHeight: "1.6" }}>{item.desc}</p>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>

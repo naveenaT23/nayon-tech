@@ -3,6 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/animations/Reveal";
+import ScrollIndicator from "@/components/animations/ScrollIndicator";
+import { Parallax } from "@/components/animations/Parallax";
+import PageHeader3D from "@/components/animations/PageHeader3D";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -53,43 +56,51 @@ export default function PortfolioPage() {
 
   return (
     <main>
-      <header className="page-header">
-        <div className="container">
-          <Reveal>
-            <h1>Our Portfolio</h1>
-          </Reveal>
-          <Reveal delay={0.4}>
-            <p style={{ color: "var(--text-muted)" }}>Showcasing our latest breakthroughs and collaborations.</p>
-          </Reveal>
+      <header className="page-header" style={{ position: "relative", overflow: "hidden", background: "transparent" }}>
+        <PageHeader3D />
+        <div className="container" style={{ position: "relative", zIndex: 1 }}>
+          <Parallax offset={60}>
+            <Reveal>
+              <h1>Our Portfolio</h1>
+            </Reveal>
+            <Reveal delay={0.4}>
+              <p style={{ color: "var(--text-muted)" }}>Showcasing our latest breakthroughs and collaborations.</p>
+            </Reveal>
+            <Reveal delay={0.8}>
+              <ScrollIndicator targetId="portfolio-grid" className="relative" />
+            </Reveal>
+          </Parallax>
         </div>
       </header>
 
       <section id="portfolio-full">
         <div className="container">
-          <div className="portfolio-grid">
-            {projects.map((project, index) => (
-              <Reveal key={index} delay={index * 0.2}>
-                <div className="project-card">
-                  <div className="project-image">
-                    <Image 
-                      src={project.image} 
-                      alt={project.title} 
-                      width={600} 
-                      height={400} 
-                      className="object-cover w-full h-full"
-                    />
-                  </div>
-                  <div className="project-content">
-                    <h3>{project.title}</h3>
-                    <p>{project.description}</p>
-                    <Link href={project.link} target="_blank" className="view-project">
-                      View Project <ArrowRight size={14} style={{ display: "inline", marginLeft: "5px" }} />
-                    </Link>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+            <div className="portfolio-grid">
+              {projects.map((project, index) => (
+                <Reveal key={index} delay={index * 0.2} height="100%">
+                  <Parallax offset={20} style={{ height: "100%" }}>
+                    <div className="project-card" style={{ height: "100%", display: "flex", flexDirection: "column" }}>
+                      <div className="project-image">
+                        <Image 
+                          src={project.image} 
+                          alt={project.title} 
+                          width={600} 
+                          height={400} 
+                          className="object-cover w-full h-full"
+                        />
+                      </div>
+                      <div className="project-content" style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+                        <h3 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>{project.title}</h3>
+                        <p style={{ color: "var(--text-muted)", marginBottom: "1.5rem", flex: 1 }}>{project.description}</p>
+                        <Link href={project.link} target="_blank" className="view-project">
+                          View Project <ArrowRight size={14} style={{ display: "inline", marginLeft: "5px" }} />
+                        </Link>
+                      </div>
+                    </div>
+                  </Parallax>
+                </Reveal>
+              ))}
+            </div>
         </div>
       </section>
     </main>
