@@ -7,7 +7,8 @@ const ContactForm = () => {
     name: "",
     email: "",
     subject: "",
-    message: ""
+    message: "",
+    botField: "" // Honeypot field
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -17,6 +18,12 @@ const ContactForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Check honeypot
+    if (formData.botField) {
+      console.warn("Bot detected.");
+      return;
+    }
     
     const phoneNumber = "917569562240";
     const text = `*New Inquiry from Nayon Tech Website*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Subject:* ${formData.subject || "N/A"}%0A*Message:* ${formData.message}`;
@@ -28,6 +35,17 @@ const ContactForm = () => {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
+      {/* Honeypot field - hidden from users */}
+      <div style={{ display: "none" }}>
+        <input 
+          type="text" 
+          name="botField" 
+          value={formData.botField} 
+          onChange={handleChange} 
+          tabIndex={-1} 
+          autoComplete="off" 
+        />
+      </div>
       <div className="form-group">
         <input 
           type="text" 
