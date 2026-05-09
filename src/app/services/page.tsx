@@ -9,6 +9,7 @@ import { Suspense } from "react";
 import Starfield from "@/components/animations/Starfield";
 import Link from "next/link";
 import { services } from "@/data/services";
+import { ParallaxImage } from "@/components/animations/ParallaxImage";
 
 export const metadata: Metadata = {
   title: "Expert AI & Web Services | High-Performance Tech Solutions",
@@ -62,30 +63,11 @@ export default function ServicesPage() {
       </section>
 
       <section id="enterprise-cta" style={{ position: "relative", padding: "120px 0", overflow: "hidden" }}>
-        <div style={{ 
-          position: "absolute", 
-          top: 0, 
-          left: 0, 
-          width: "100%", 
-          height: "100%", 
-          zIndex: -1 
-        }}>
-          <Image 
-            src="/enterprise_solutions_bg.png" 
-            alt="Enterprise Network Background" 
-            fill 
-            className="object-cover"
-            style={{ opacity: 0.4 }}
-          />
-          <div style={{ 
-            position: "absolute", 
-            top: 0, 
-            left: 0, 
-            width: "100%", 
-            height: "100%", 
-            background: "linear-gradient(to right, rgba(5,6,10,1), transparent, rgba(5,6,10,1))" 
-          }}></div>
-        </div>
+        <ParallaxImage 
+          src="/enterprise_solutions_bg.png" 
+          alt="Enterprise Network Background" 
+          overlayOpacity={0.7}
+        />
         <div className="container">
           <div style={{ 
             display: "flex", 
