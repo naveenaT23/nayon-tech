@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/layout/SmoothScroll";
-import ScrollProgress from "@/components/animations/ScrollProgress";
+import PageProgress from "@/components/animations/PageProgress";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 
 const inter = Inter({ 
@@ -85,7 +85,7 @@ export default function RootLayout({
     <html lang="en" style={{ backgroundColor: "#05060a" }}>
       <body className={`${inter.variable} ${orbitron.variable}`} style={{ backgroundColor: "#05060a" }}>
         <SmoothScroll>
-          <ScrollProgress />
+          <PageProgress />
           <Navbar />
           {children}
           <WhatsAppButton />
