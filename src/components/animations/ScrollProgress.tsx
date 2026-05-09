@@ -12,6 +12,7 @@ export default function ScrollProgress() {
 
   return (
     <motion.div
+      className="fixed top-0 left-0 right-0 h-1 bg-primary origin-left z-[9999]"
       style={{
         position: "fixed",
         top: 0,
@@ -22,7 +23,7 @@ export default function ScrollProgress() {
         transformOrigin: "0%",
         zIndex: 9999,
         boxShadow: "0 0 10px var(--primary)",
-        scaleX
+        scaleX: scaleX
       }}
     />
   );
