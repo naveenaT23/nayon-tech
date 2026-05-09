@@ -52,10 +52,15 @@ const Hero3D = () => {
       left: 0, 
       width: "100%", 
       height: "100%", 
-      zIndex: -1,
-      opacity: 0.8
+      zIndex: 0,
+      opacity: 1
     }}>
-      <Canvas>
+      <Canvas
+        style={{ background: "transparent" }}
+        gl={{ alpha: true, antialias: true }}
+        onCreated={({ gl }) => gl.setClearColor("#05060a", 0)}
+      >
+        <color attach="background" args={["#05060a"]} />
         <PerspectiveCamera makeDefault position={[0, 0, 8]} fov={50} />
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} intensity={1} color="#00f2ff" />

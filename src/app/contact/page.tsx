@@ -7,7 +7,7 @@ import ScrollIndicator from "@/components/animations/ScrollIndicator";
 import { Parallax } from "@/components/animations/Parallax";
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import DynamicPageHeader3D from "@/components/animations/DynamicPageHeader3D";
+import Starfield from "@/components/animations/Starfield";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -17,10 +17,8 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <main>
-      <header className="page-header" style={{ position: "relative", overflow: "hidden", background: "transparent" }}>
-        <Suspense fallback={<div className="absolute inset-0 bg-transparent" />}>
-          <DynamicPageHeader3D />
-        </Suspense>
+      <header className="page-header" style={{ position: "relative", overflow: "hidden", backgroundColor: "#05060a" }}>
+        <Starfield />
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
           <Parallax offset={60}>
             <Reveal>

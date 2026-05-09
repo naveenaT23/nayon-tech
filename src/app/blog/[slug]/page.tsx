@@ -7,7 +7,6 @@ import { blogPosts } from "@/data/blog";
 import { Reveal } from "@/components/animations/Reveal";
 import { Parallax } from "@/components/animations/Parallax";
 import ScrollIndicator from "@/components/animations/ScrollIndicator";
-import PageHeader3D from "@/components/animations/PageHeader3D";
 
 interface PageProps {
   params: Promise<{
@@ -42,8 +41,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <main>
-      <header className="page-header" style={{ padding: "160px 0 60px", position: "relative", overflow: "hidden", background: "transparent" }}>
-        <PageHeader3D />
+      <header className="page-header" style={{ padding: "160px 0 60px", position: "relative", overflow: "hidden", backgroundColor: "#05060a" }}>
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
           <Parallax offset={40}>
             <Reveal>

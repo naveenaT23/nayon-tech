@@ -69,23 +69,25 @@ const HeroCanvas = () => {
         p.draw();
       });
 
-      // Connect particles
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
+      const connect = () => {
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 150) {
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(0, 242, 255, ${1 - dist / 150})`;
-            ctx.lineWidth = 0.5;
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
+            if (dist < 150) {
+              ctx.beginPath();
+              ctx.strokeStyle = `rgba(0, 242, 255, ${1 - dist / 150})`;
+              ctx.lineWidth = 0.5;
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+            }
           }
         }
-      }
+      };
+      connect();
       animationFrameId = requestAnimationFrame(animate);
     };
 
@@ -98,7 +100,22 @@ const HeroCanvas = () => {
     };
   }, []);
 
-  return <canvas id="hero-canvas" ref={canvasRef} />;
+  return (
+    <canvas 
+      id="hero-canvas" 
+      ref={canvasRef} 
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        zIndex: 0,
+        opacity: 1,
+        pointerEvents: "none"
+      }}
+    />
+  );
 };
 
 export default HeroCanvas;

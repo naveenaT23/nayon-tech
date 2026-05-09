@@ -82,8 +82,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${orbitron.variable}`}>
+    <html lang="en" style={{ backgroundColor: "#05060a" }}>
+      <body className={`${inter.variable} ${orbitron.variable}`} style={{ backgroundColor: "#05060a" }}>
         <SmoothScroll>
           <ScrollProgress />
           <Navbar />

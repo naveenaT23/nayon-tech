@@ -39,16 +39,22 @@ const BackgroundGlow = () => {
 const Global3D = () => {
   return (
     <div style={{ 
-      position: "fixed", 
+      position: "absolute", 
       top: 0, 
       left: 0, 
       width: "100%", 
       height: "100%", 
       pointerEvents: "none", 
-      zIndex: -2,
+      zIndex: 0,
       opacity: 1
     }}>
-      <Canvas camera={{ position: [0, 0, 30], fov: 60 }}>
+      <Canvas 
+        camera={{ position: [0, 0, 30], fov: 60 }}
+        style={{ background: "transparent" }}
+        gl={{ alpha: true, antialias: true }}
+        onCreated={({ gl }) => gl.setClearColor("#05060a", 0)}
+      >
+        <color attach="background" args={["#05060a"]} />
         <ambientLight intensity={0.5} />
         <BackgroundGlow />
       </Canvas>

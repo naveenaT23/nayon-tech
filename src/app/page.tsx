@@ -15,8 +15,8 @@ import { blogPosts } from "@/data/blog";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Nayon Tech | AI Automation & Next.js Development Agency",
-  description: "Scale your business with futuristic AI automation, high-performance Next.js development, and world-class digital design from Nayon Tech's expert team.",
+  title: "Nayon Tech | Revolutionizing Business with Next-Gen AI & Web",
+  description: "Experience the future of business with Nayon Tech. Expert AI automation, high-performance Next.js development, and premium digital transformation services.",
 };
 
 export default function Home() {
@@ -59,13 +59,13 @@ export default function Home() {
         <div className="container hero-content">
           <Parallax offset={100}>
             <Reveal>
-              <span className="hero-tagline">Innovation Meets Excellence</span>
+              <span className="hero-tagline">The Future of Digital Intelligence</span>
             </Reveal>
             <Reveal delay={0.4}>
-              <h1>Elite AI Automation & Next.js Development Agency</h1>
+              <h1>Next-Gen AI & Web Excellence</h1>
             </Reveal>
             <Reveal delay={0.6}>
-              <p>We empower startups and enterprises with cutting-edge AI, cloud solutions, and digital transformation services designed for the next generation of business.</p>
+              <p>At Nayon Tech, we architect high-performance digital ecosystems powered by advanced AI and cutting-edge Next.js engineering to propel your brand into the future.</p>
             </Reveal>
             <Reveal delay={0.8}>
               <div className="hero-btns">

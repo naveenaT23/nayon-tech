@@ -6,7 +6,6 @@ import { ArrowLeft, CheckCircle2, ChevronRight } from "lucide-react";
 import { services } from "@/data/services";
 import { Reveal } from "@/components/animations/Reveal";
 import { Parallax } from "@/components/animations/Parallax";
-import PageHeader3D from "@/components/animations/PageHeader3D";
 import ScrollIndicator from "@/components/animations/ScrollIndicator";
 
 interface PageProps {
@@ -42,8 +41,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
   return (
     <main>
-      <header className="page-header" style={{ padding: "160px 0 80px", position: "relative", overflow: "hidden", background: "transparent" }}>
-        <PageHeader3D />
+      <header className="page-header" style={{ padding: "160px 0 80px", position: "relative", overflow: "hidden", backgroundColor: "#05060a" }}>
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
           <Parallax offset={40}>
             <Reveal>
