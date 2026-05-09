@@ -92,7 +92,7 @@ const Starfield: React.FC = () => {
 
     window.addEventListener("resize", resize);
     resize();
-    animate();
+    animate(0);
 
     return () => {
       window.removeEventListener("resize", resize);
